@@ -23,6 +23,7 @@
         <br>
         {{"Beskrivelse: "}} {{ $house->description}}
         <br>
+        {{ "Navn på sælger: "}} {{ $house->name}}
         <form action="/viewHouse" method="get">
             <input type="hidden" name="houseId" value="{{ $house->id }}">
             <button type="submit">Se huset</button>

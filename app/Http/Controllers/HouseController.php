@@ -49,7 +49,10 @@ class HouseController extends Controller
         }
         if ($request->isMethod("get"))
         {
-            $houses = House::all();
+            $houses = DB::table("houses")
+            ->join("users", "users.id", "=", "houses.userId")
+            ->select("houses.*", "users.name")
+            ->get();
 
             return view("houseOverview", [
                 "houses" => $houses
